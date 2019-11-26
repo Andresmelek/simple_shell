@@ -16,7 +16,7 @@ int _strlen(char *s);
 void elstrtok(char **, char *);
 void freeall(char **, int);
 void handle_sigint(int);
-int _strcmp(char *, char *);
+int compare_exit(char *);
 void impenv(void);
 int _putchar(char c);
 void _puts(char *str);
@@ -25,5 +25,5 @@ int _atoi(char *);
 void move_space(char *);
 void hand_error(int, char **);
 int error_print(char);
-char *_strdup(char *);
+int _strcmp(char *, char *);
 #endif
