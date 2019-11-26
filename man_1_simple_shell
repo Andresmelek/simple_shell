@@ -1,0 +1,79 @@
+.TH "SIMPLE_SHELL" 1 "28 November 2019" "GNU Simple_Shell 0.1" "General Commands Manual "
+.SH NAME
+.B Simple_Shell
+.SH SYNOPSIS
+.B #include "holberton.h"
+.SH SYNOPSIS
+.B
+#include "holberton.h"
+.LP
+extern char **environ;
+int error_counter;
+void loop(void);
+void theexecv(char **, char *, int);
+int _get_pad(char **);
+void execucion(char *);
+int _strlen(char *s);
+void elstrtok(char **, char *);
+void freeall(char **, int);
+void handle_sigint(int);
+int _strcmp(char *, char *);
+void impenv(void);
+int _putchar(char c);
+void _puts(char *str);
+int _getstatus(char *);
+int _atoi(char *);
+void move_space(char *);
+void hand_error(char *, int, char **);
+int error_print(char);
+char *_strdup(char *);
+.TP
+.B ./hsh -> To execute the shell
+.SH DESCRIPTION
+\fBSimple Simple_Shell\fR is the command interpretor in an operating system such as Unix or GNU/Linux, it is a program that executes other programs. It provides a computer user an interface to the Unix/GNU Linux system so that the user can run different commands or utilities/tools with some input data.
+When the shell has finished executing a program, it sends an output to the user on the screen, which is the standard output device. For this reason, it is referred to as the “command interpretor”.
+For that reason is a prorgramm that provides an interface for users to get access to the kernel's services.
+This shell works as a command interpreter in two modes:
+.TP
+.B Interactive Mode
+.TP
+In this mode, the shell takes the commands from the standard input, executes them and gets ready to read another command-line.
+.TP
+.B Non-interactive Mode
+.TP
+This mode reads the commands from a file sent thru a pipe, the commands will be executed and the shell won't ask for more.
+.TP
+The Simple_Shell is fully written in C programming language, it uses systemcalls and regular C functions.
+.SH ARGUMENTS
+The inputs given to the shell are commands lines to process that inputs with the help of a given command. The arguments can be in the form of a file or directory.
+The arguments must be entered in the terminal after entering command. They can be set as a path. We can also write more than one argument together depending of the syntax of the command writtend and then they will be processed in the order they are writtten.
+.SH EXECUTION
+In order to invoke the Simple_Shell it is necessary to run the \fB./hsh\fR command. A Makefile is also provided in order to make the compiltion easier.
+.SH DEFINITIONS
+---
+SH SHELL GRAMMAR
+---
+.SH RETURN VALUE
+.TP
+.SH ENVIROMENT
+When a program is invoked it is given an array of strings called the \fB environment\fR. This is a list of \fB name-value pairs\fR, of the form \fB name=value.\fR
+.TP
+.SH EXAMPLE
+.PP
+.RS
+.BR PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+.SH EXIT STATUS
+The exit status of an executed command  is  the value returned by the waitpid system call  or  equivalent function. Exit statuses fall between  0  and  255,though,as explained  below, the shell may use values above 125  specially.
+
+Under certain circumstances, the shell will use special  values  to  indicate specific failure modes.
+
+For the Holbishell's purposes, a command which exits with a zero exit status has succeeded.
+The return value of a \fBsimple command\fR is its exit status.
+.SH VARIABLES
+---
+.SH SIGNALS
+The SIG_INT (CTRL+C) and (CTRL+D) signals are handled it in the Simple_Shell.
+.SH BUGS
+Bugs are yet to find.
+.SH AUTHOR
+Camilo Isaza and Santiago Aldana
