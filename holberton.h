@@ -6,8 +6,7 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <sys/wait.h>
-extern char **environ;
-int error_counter;
+/*Functions Prototyes */
 void loop(void);
 void theexecv(char **, char *, int);
 int _get_pad(char **);
@@ -26,4 +25,8 @@ void move_space(char *);
 void hand_error(int, char **);
 int error_print(char);
 int _strcmp(char *, char *);
+
+/* Global variables */
+extern char **environ;
+int error_counter;
 #endif
