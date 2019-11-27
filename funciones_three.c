@@ -19,3 +19,25 @@ int compare_exit(char *string)
 	}
 	return (t);
 }
+/**
+ * duplicated - duplica
+ * @string: string
+ * Return: Returns NULL if fails
+ *
+ */
+char *duplicated(char *string)
+{
+	char *t;
+	int i = 0;
+
+	t = malloc(_strlen(string) + 1);
+	if (t == NULL)
+		return (NULL);
+	while (string[i] != '\0')
+	{
+		t[i] = string[i];
+		i++;
+	}
+	t[i] = '\0';
+	return (t);
+}

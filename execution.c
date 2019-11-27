@@ -108,11 +108,25 @@ void theexecv(char **pat, char *string, int m)
  */
 void execucion(char *string)
 {
-	char *av[20];
-	int i = 0;
+	char *av[20], *t;
+	int i = 0, child = 0;
 
-	i = _get_pat(av);
-	if (_strcmp(string, "env\n") == 0)
-		impenv();
-	theexecv(av, string, i);
+	t = duplicated(string);
+	child = fork();
+	if (child == 0)
+	{
+		i = _get_pat(av);
+		if (_strcmp(string, "env\n") == 0)
+			impenv();
+		theexecv(av, string, i);
+	}
+	else if (child < 0)
+		perror("hsh"), free(string), exit(0);
+	else
+	{
+		wait(&child);
+		free(string);
+		free(t);
+	}
+
 }

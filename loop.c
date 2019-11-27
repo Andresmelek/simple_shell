@@ -6,10 +6,9 @@
 */
 void loop(void)
 {
-	int i = 0, t = 0;
+	int t = 0;
 	size_t size = 0;
 	char *string;
-	pid_t chil;
 
 		if (isatty(STDIN_FILENO) == 1)
 			write(STDOUT_FILENO, "$ ", 2);
@@ -25,15 +24,7 @@ void loop(void)
 				exit(_getstatus(string));
 			if (_strcmp(string, "\n") == 0)
 				string = strtok(string, "\n");
-			chil = fork();
-			if (chil == 0)
 			execucion(string);
-			else if (chil < 0)
-				perror("hsh"), exit(0);
-			else
-			{
-				wait(&i);
-			}
 			if (isatty(STDIN_FILENO) == 1)
 				write(STDOUT_FILENO, "$ ", 2), t = 0;
 		}
