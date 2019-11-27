@@ -8,27 +8,28 @@ void loop(void)
 {
 	int t = 0;
 	size_t size = 0;
-	char *string = NULL;
+	char *string = NULL, *copy = NULL;
 
 		if (isatty(STDIN_FILENO) == 1)
 			write(STDOUT_FILENO, "$ ", 2);
 		signal(SIGINT, handle_sigint);
 		while (getline(&string, &size, stdin) != EOF)
 		{
+			copy = string;
 			t = 1;
 			error_counter++;
 			signal(SIGINT, handle_sigint);
-			if (string[0] == 9 || string[0] == ' ')
-				string = strtok(string, "\t   ");
+			if ((string[0] == 9) || (string[0] == ' ') || (string[0] =='#'))
+				string = strtok(string, "\t\r\n\a ");
 			if (compare_exit(string) == 4)
 				exit(_getstatus(string));
 			if (_strcmp(string, "\n") == 0)
 				string = strtok(string, "\n");
 			execucion(string);
-			free(string);
-			string = NULL;
 			if (isatty(STDIN_FILENO) == 1)
 				write(STDOUT_FILENO, "$ ", 2), t = 0;
+			free(copy);
+			string = NULL;
 		}
 		if (t == 0)
 			_puts("\n");
