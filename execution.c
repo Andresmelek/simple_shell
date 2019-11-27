@@ -65,7 +65,7 @@ void elstrtok(char **argv, char *string)
 void theexecv(char **pat, char *string, int m)
 {
 	char *av1 = NULL;
-	int i = 0, t = 0, j = 0, x = 0, str = 0;
+	int i = 0, t = 0, j = 0, x = 0, str = 0, process;
 	char *argv[6];
 
 	elstrtok(argv, string);
@@ -95,7 +95,9 @@ void theexecv(char **pat, char *string, int m)
 		i++;
 		x = 0;
 		if (access(av1, F_OK) == 0)
-			execve(av1, argv, environ);
+			process = (execve(av1, argv, environ));
+		if (process == -1)
+			perror("Error"), free(av1), exit(0);
 		free(av1);
 	}
 	hand_error(error_counter, argv);
