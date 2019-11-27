@@ -19,7 +19,7 @@ void loop(void)
 			t = 1;
 			error_counter++;
 			signal(SIGINT, handle_sigint);
-			if ((string[0] == 9) || (string[0] == ' ') || (string[0] =='#'))
+			if ((string[0] == 9) || (string[0] == ' '))
 				string = strtok(string, "\t\r\n\a ");
 			if (compare_exit(string) == 4)
 				exit(_getstatus(string));
