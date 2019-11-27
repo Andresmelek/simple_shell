@@ -9,7 +9,7 @@ int _atoi(char *s)
 {
 
 	unsigned int res = 0;
-	int n, t, x, i = 0;
+	int n = 0, t, x, i = 0;
 
 	if (*s == '\0')
 		return (0);

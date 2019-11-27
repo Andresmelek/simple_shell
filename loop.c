@@ -8,7 +8,7 @@ void loop(void)
 {
 	int t = 0;
 	size_t size = 0;
-	char *string;
+	char *string = NULL;
 
 		if (isatty(STDIN_FILENO) == 1)
 			write(STDOUT_FILENO, "$ ", 2);
@@ -25,6 +25,8 @@ void loop(void)
 			if (_strcmp(string, "\n") == 0)
 				string = strtok(string, "\n");
 			execucion(string);
+			free(string);
+			string = NULL;
 			if (isatty(STDIN_FILENO) == 1)
 				write(STDOUT_FILENO, "$ ", 2), t = 0;
 		}
@@ -52,7 +54,7 @@ void handle_sigint(int i)
 int _getstatus(char *string)
 {
 	int i = 0, x = 0;
-	char aux[10];
+	char aux[10] = "0";
 
 	while (string[i] != ' ' && string[i] != '\0')
 		i++;
@@ -66,5 +68,6 @@ int _getstatus(char *string)
 	}
 	i = 0;
 	i = _atoi(aux);
+	free(string);
 	return (i);
 }

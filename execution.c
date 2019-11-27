@@ -74,7 +74,7 @@ void theexecv(char **pat, char *string, int m)
 		execve(string, argv, environ);
 	while (t < (m - 1))
 	{
-		av1 = malloc((_strlen(pat[i]) + _strlen(argv[0]) + 1));
+		av1 = malloc((_strlen(pat[i]) + _strlen(argv[0]) + 2));
 		if (av1 == NULL)
 			exit(0);
 		while (pat[i][j] != '\0')
@@ -108,10 +108,9 @@ void theexecv(char **pat, char *string, int m)
  */
 void execucion(char *string)
 {
-	char *av[20], *t;
+	char *av[20];
 	int i = 0, child = 0;
 
-	t = duplicated(string);
 	child = fork();
 	if (child == 0)
 	{
@@ -125,8 +124,6 @@ void execucion(char *string)
 	else
 	{
 		wait(&child);
-		free(string);
-		free(t);
 	}
 
 }
