@@ -11,6 +11,8 @@ int compare_exit(char *string)
 	int i = 0, t = 0;
 	char cmp[4] = {'e', 'x', 'i', 't'};
 
+	if (_strlen(string) < 2)
+		return (0);
 	while (i < 4)
 	{
 		if (string[i] == cmp[i])

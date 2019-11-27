@@ -41,6 +41,9 @@ int _strcmp(char *s1, char *s2)
 	a = 0;
 	c = 0;
 	d = 0;
+
+	if (s1 == NULL)
+		return (-1);
 	while (s1[a] != '\0' && s2[a] != '\0' && b == 0)
 	{
 		if (s1[a] != s2[a])

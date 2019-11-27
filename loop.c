@@ -15,21 +15,19 @@ void loop(void)
 		signal(SIGINT, handle_sigint);
 		while (getline(&string, &size, stdin) != EOF)
 		{
+
 			copy = string;
 			t = 1;
 			error_counter++;
 			signal(SIGINT, handle_sigint);
-			if ((string[0] == ' ') || ((string[1] == ' ')))
-				exit(139);
-			if ((string[0] == '\t') || ((string[1] == '\t')))
-				exit(139);
 			if ((string[0] == 9) || (string[0] == '\t') || (string[0] == ' '))
 				string = strtok(string, "\t\r\n\a ");
 			if (compare_exit(string) == 4)
 				exit(_getstatus(string));
 			if (_strcmp(string, "\n") == 0)
 				string = strtok(string, "\n");
-			execucion(string);
+			if (string != NULL)
+				execucion(string);
 			if (isatty(STDIN_FILENO) == 1)
 				write(STDOUT_FILENO, "$ ", 2), t = 0;
 			free(copy);
