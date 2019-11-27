@@ -6,7 +6,7 @@
 */
 void loop(void)
 {
-	int i = 0;
+	int i = 0, t = 0;
 	size_t size = 0;
 	char *string;
 	pid_t chil;
@@ -16,6 +16,7 @@ void loop(void)
 		signal(SIGINT, handle_sigint);
 		while (getline(&string, &size, stdin) != EOF)
 		{
+			t = 1;
 			error_counter++;
 			signal(SIGINT, handle_sigint);
 			if (string[0] == 9 || string[0] == ' ')
@@ -33,9 +34,12 @@ void loop(void)
 			{
 				wait(&i);
 			}
-			write(STDOUT_FILENO, "$ ", 2);
+			if (isatty(STDIN_FILENO) == 1)
+				write(STDOUT_FILENO, "$ ", 2), t = 0;
 		}
-		_puts("\n");
+		if (t == 0)
+			_puts("\n");
+
 }
 /**
  * handle_sigint - ctrl + c implementacion
