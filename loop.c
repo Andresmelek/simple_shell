@@ -59,6 +59,8 @@ int _getstatus(char *string)
 	int i = 0, x = 0;
 	char aux[10] = "0";
 
+	if (string == NULL)
+		free(string);
 	while (string[i] != ' ' && string[i] != '\0')
 		i++;
 	while (string[i] == ' ')
