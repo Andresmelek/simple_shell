@@ -116,13 +116,13 @@ void execucion(char *string)
 	child = fork();
 	if (child == 0)
 	{
-		i = _get_pat(av);
 		if (_strcmp(string, "env\n") == 0)
 			impenv();
+		i = _get_pat(av);
 		theexecv(av, string, i);
 	}
 	else if (child < 0)
-		perror("hsh"), free(string), exit(0);
+		perror("hsh"), free(string), exit(127);
 	else
 	{
 		wait(&child);
