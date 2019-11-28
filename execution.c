@@ -118,6 +118,8 @@ void execucion(char *string)
 	{
 		if (_strcmp(string, "env\n") == 0)
 			impenv();
+		if (_strcmp(string, "help\n") == 0)
+			_helper();
 		i = _get_pat(av);
 		theexecv(av, string, i);
 	}
@@ -127,5 +129,13 @@ void execucion(char *string)
 	{
 		wait(&child);
 	}
+}
+/**
+ * _helper - help message
+ */
+void _helper(void)
+{
+	char *msg = "Hello my dear, holbipeer do you need any help?\n";
 
+	write(STDOUT_FILENO, msg, _strlen(msg)), exit(0);
 }

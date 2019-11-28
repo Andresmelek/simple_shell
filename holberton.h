@@ -26,6 +26,7 @@ void hand_error(int, char **);
 int error_print(char);
 int _strcmp(char *, char *);
 char *duplicated(char *);
+void _helper(void);
 
 /* Global variables */
 extern char **environ;

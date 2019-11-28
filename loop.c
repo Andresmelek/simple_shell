@@ -15,7 +15,6 @@ void loop(void)
 		signal(SIGINT, handle_sigint);
 		while (getline(&string, &size, stdin) != EOF)
 		{
-
 			copy = string;
 			t = 1;
 			error_counter++;
