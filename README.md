@@ -1,7 +1,11 @@
 <h1 align ="center"> Simple_Shell() </h1><br>
 
 ---
+<p align="center">
+	<a href="https://holbertonschool.com">
+		<img alt="holbie" title="holbie" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_0cddBMO8o6kiA1zAcopRioEN-cWurNdXj38YG-XKfCgumSLJ&s" width="350"> </a>
 
+---
 ## Table of Contents
 
 ---
@@ -71,11 +75,7 @@ And then run the file.sh to see the outputs, with the line:
  ./[FILENAME]
 ```
 
-Or you can compile the program with the file included  Makefile (it is a file that compilates and executes the file at the same time.) it is used like this:
 
-```
-$ make 
-```
 
 - To read the manual you must run:
 ```
@@ -109,8 +109,6 @@ Now you are able to get through the Simple_Shell programm.
 |[hsh]() | This is executable file, to run the program under the ./hsh command |
 |[loop.c]() | In this file we can find the functions to start the interactive and non-interactive mode, where the child process are created, the signals are handled and the exits are set. |
 |[main.c]() | This is the file that makes the magic happen, the infinite loop |
-|[Makefile]() | Contains the compilation flags and executes the programm |
-|[]() | |
 ---
 
 ##  Usage
@@ -131,12 +129,8 @@ $ echo "/bin/ls" | ./hsh
 loop.c AUTHORS main.c execution.c error_handler.c holberton.h funciones.c Makefile
 ```
 
----
-## Flowchart
----
-Pending...
----
 
+---
 ## Examples
 ---
 
